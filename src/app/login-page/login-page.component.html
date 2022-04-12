@@ -1,0 +1,26 @@
+<div class="maindiv">
+    <div class="wrapper fadeInDown">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+            <img class="logo" [src]="imageSrc" width="52px" height="50px" />
+
+            <div class="form-group">
+                <label>Sign in to start your session.</label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="username" placeholder="Username">
+
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" formControlName="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Log In</button>
+        </form>
+
+        <!-- Remind Passowrd -->
+        <!-- <div id="formFooter"> -->
+        <!-- <a class="underlineHover" href="#">Forgot Password?</a> -->
+        <!-- </div> -->
+    </div>
+</div>
