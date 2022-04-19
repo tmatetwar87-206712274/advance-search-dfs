@@ -30,7 +30,7 @@ export class SearchBarComponent {
 
   isVisible = true;
   title = 'advanceSearch';
-  imageSrc = 'assets/data/logo.png';
+  // imageSrc = 'assets/data/logo.png';
   selectedValue: string | undefined;
   public questions: { id: number, name: string }[] = data;
   selectedOption: any;

@@ -1,0 +1,52 @@
+[
+    {     "id":1,
+        "sales": 1045,
+        "location": "central",
+        "year": 2018
+    },
+    {    "id":2,
+        "sales": 1046,
+        "location": "south",
+        "year": 2019
+    },
+    {  "id":3,
+        "sales": 1047,
+        "location": "East",
+        "year": 2017
+    },
+    { "id":4,
+        "sales": 1048,
+        "location": "central",
+        "year": 2018
+    },
+    { "id":5,
+        "sales": 1048,
+        "location": "East",
+        "year": 2018
+    },
+    { "id":6,
+        "sales": 1048,
+        "location": "South",
+        "year": 2018
+    },
+    { "id":7,
+        "sales": 1048,
+        "location": "East",
+        "year": 2018
+    },
+    { "id":8,
+        "sales": 1048,
+        "location": "South",
+        "year": 2018
+    },
+    { "id":9,
+        "sales": 1048,
+        "location": "central",
+        "year": 2018
+    },
+    { "id":10,
+        "sales": 1048,
+        "location": "East",
+        "year": 2018
+    }
+]
