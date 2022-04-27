@@ -77,8 +77,13 @@
   }
 }
 
+.autocomplete {
+  width: 70%;
+  margin: 12px 33px;
+}
+
 .maindiv {
-  /* background-image: url(../../assets/data/search-background.jfif); */
+  background-image: url(../../assets/data/search.jpeg);
   height: 100%;
   /* Center and scale the image nicely */
   background-position: center;
@@ -110,27 +115,16 @@
   display: table;
 }
 
+.tabData {
+  border: 1px solid lightgrey;
+  margin: 32px;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
   border: 1px solid #ddd;
-}
-
-th,
-td {
-  text-align: left;
-  padding: 16px;
-}
-
-th {
-  background-color: #4472c4;
-  color: white;
-}
-
-h1 {
-  color: white;
-  text-align: center;
 }
 
 .even {
@@ -146,6 +140,7 @@ h1 {
   font-size: 15px;
   color: white;
 }
+
 :host {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
@@ -408,6 +403,157 @@ svg#clouds {
   left: -230px;
   z-index: -10;
   width: 1920px;
+}
+
+.dataSet {
+  width: 25%;
+  background-color: rgb(143, 219, 255);
+  font-size: 100%;
+  color: black;
+}
+
+table {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+
+}
+
+.searchlabel{
+  color:lightslategray;
+  float: left;
+}
+.container {
+  background-image: url(../../assets/data/search.jpeg);
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main {
+  width: 50%;
+  margin: 50px auto;
+}
+
+button {
+  margin: 16px 8px;
+}
+
+.mat-header-cell {
+  font-size: 14px;
+}
+
+.columnGray {
+  background-color: rgb(212, 209, 209);
+  color: black;
+}
+
+.columnBlue {
+  background-color: rgb(203, 230, 243);
+  color: black;
+}
+
+.metaData {
+  background-color: rgb(155, 154, 154);
+  font-size: 100%;
+}
+
+.mat-header-cell {
+  background-color: #a0e8c5;
+  color: black;
+}
+
+.table2 .mat-header-cell {
+  background-color: #a8d2e8;
+  color: black;
+}
+
+
+.pading-td {
+  padding: 10px;
+}
+
+mat-colum-header-row-second-group {
+  width: 10%;
+}
+
+
+th {
+  background-color: rgb(212, 209, 209);
+  /* color: white; */
+}
+
+body {
+  font-family: 'Covered By Your Grace', cursive;
+  line-height: 1.25;
+
+}
+
+.mat-row:nth-child(even) {
+  background-color: #e9faf1;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: #d0f4e2;
+}
+
+.table2 .mat-row:nth-child(even) {
+  background-color: #e9f7ff;
+}
+
+.table2 .mat-row:nth-child(odd) {
+  background-color: #d2e9f5;
+}
+
+.tableContent {
+  background-color: white;
+  border-style: groove;
+}
+
+@media screen and (max-width: 960px) {
+  .mat-table {
+    border: 0;
+    vertical-align: middle
+  }
+
+  .mat-table caption {
+    font-size: 1em;
+  }
+
+  .mat-table .mat-row {
+    border-bottom: 5px solid #ddd;
+    display: block;
+  }
+
+  .mat-table .mat-cell {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1em;
+    text-align: right;
+    font-weight: bold;
+    height: 30px;
+    margin-bottom: 4%;
+  }
+
+  .mat-table .mat-cell:before {
+
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    font-size: .85em;
+  }
+
+  .mat-table .mat-cell:last-child {
+    border-bottom: 0;
+  }
+
+  .mat-table .mat-cell:first-child {
+    margin-top: 4%;
+  }
 }
 
 /* Responsive Styles */

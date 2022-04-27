@@ -1,117 +1,145 @@
-/* table {
-    width: 50%;
-  } */
-
-/* 
-  table {
-      
-    width: 100%;
-  } */
 .dataSet{
-     width: 25%; 
-    background-color: rgb(143, 219, 255);
-    font-size: 100%;
-    color: black;
+  width: 25%;
+  background-color: rgb(143, 219, 255);
+  font-size: 100%;
+  color: black;
+}
+
+table {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+
+}
+
+.container {
+ background-image: url(../../assets/data/search.jpeg);
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main {
+  width: 50%;
+  margin: 50px auto;
+}
+
+button {
+  margin: 16px 8px;
+}
+
+.mat-header-cell{
+  font-size: 14px;
+}
+
+.columnGray{
+  background-color: rgb(212, 209, 209);
+  color: black;
+}
+
+.columnBlue{
+  background-color:rgb(203, 230, 243);
+  color: black;
+}
+
+.metaData{
+  background-color: rgb(155, 154, 154);
+  font-size: 100%;
+}
+
+.mat-header-cell {
+  background-color: #a0e8c5;
+  color: black;
+}
+
+.table2 .mat-header-cell {
+  background-color: #a8d2e8;
+  color: black;
 }
 
 
-
-/* .example-container {
-     height: 270px; 
-    width: 550px;
-    max-width: 100%; 
-    overflow: auto; 
-  } */
-   
- 
-
-  
-  
-  
-  th.mat-header-cell, td.mat-cell {
-      text-align: center;
-      /* border: 1px solid #CCC; */
-      padding: 0 !important;
-  }
-
-  .columnGray{
-      background-color: rgb(212, 209, 209);
-      color: black;
-  }
-
-  .columnBlue{
-    background-color:rgb(203, 230, 243);
-    color: black;
+.pading-td {
+  padding: 10px;
 }
 
-  .metaData{
-    background-color: rgb(155, 154, 154);
-    font-size: 100%;
-    /* width: 10%; */
+mat-colum-header-row-second-group{
+  width: 10%;
+}
+
+
+th {
+  background-color: rgb(212, 209, 209);
+  /* color: white; */
+}
+
+body {
+  font-family: 'Covered By Your Grace', cursive;
+  line-height: 1.25;
+
+}
+
+.mat-row:nth-child(even) {
+  background-color: #e9faf1;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: #d0f4e2;
+}
+
+.table2 .mat-row:nth-child(even) {
+  background-color: #e9f7ff;
+}
+
+.table2 .mat-row:nth-child(odd) {
+  background-color: #d2e9f5;
+}
+
+.tableContent{
+  background-color:white;
+  border-style: groove;
+  margin: 0px 300px 0px 320px;
+}
+
+@media screen and (max-width: 960px) {
+  .mat-table {
+    border: 0;
+    vertical-align: middle
   }
 
-
-
- 
-  
-
-  .pading-td {
-    padding: 10px;
+  .mat-table caption {
+    font-size: 1em;
   }
 
-  mat-colum-header-row-second-group{
-    width: 10%;
+  .mat-table .mat-row {
+    border-bottom: 5px solid #ddd;
+    display: block;
   }
- 
 
-  th {
-    background-color: rgb(212, 209, 209);
-    /* color: white; */
+  .mat-table .mat-cell {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1em;
+    text-align: right;
+    font-weight: bold;
+    height:30px;
+    margin-bottom: 4%;
   }
- 
-  body {
-    font-family: 'Covered By Your Grace', cursive;
-    line-height: 1.25;
-    
+  .mat-table .mat-cell:before {
+
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    font-size: .85em;
   }
-  
-  @media screen and (max-width: 960px) {
-    .mat-table {
-      border: 0;
-      vertical-align: middle
-    }
-  
-    .mat-table caption {
-      font-size: 1em;
-    }
-  
-    .mat-table .mat-row {
-      border-bottom: 5px solid #ddd;
-      display: block;
-    }
-    
-    .mat-table .mat-cell {
-      border-bottom: 1px solid #ddd;
-      display: block;
-      font-size: 1em;
-      text-align: right;
-      font-weight: bold;
-      height:30px;
-      margin-bottom: 4%;
-    }
-    .mat-table .mat-cell:before {
-    
-      content: attr(data-label);
-      float: left;
-       text-transform: uppercase;
-      font-weight: normal;
-      
-      font-size: .85em;
-    }
-    .mat-table .mat-cell:last-child {
-      border-bottom: 0;
-    }
-      .mat-table .mat-cell:first-child {
-      margin-top: 4%;
-    }
-  } 
+  .mat-table .mat-cell:last-child {
+    border-bottom: 0;
+  }
+  .mat-table .mat-cell:first-child {
+    margin-top: 4%;
+  }
+}

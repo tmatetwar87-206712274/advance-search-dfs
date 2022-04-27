@@ -1,24 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import {MatSort, Sort} from '@angular/material/sort'
 import { MatTableDataSource } from '@angular/material/table';
-
-export interface Table {
- thisYear: number;
- lastYear: number;
- reportData:string,
- link: string;
-  
-}
+import { UpdatedTableService } from './updatedtable.service';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
+import { SearchBarService } from '../search-bar/search-bar.service';
+import data from '../../assets/data/data.json';
+import { TableService } from '../table.service';
 
 
-const ELEMENT_DATA: Table[] = [
-  {thisYear: 12.88 ,lastYear:32.2,  reportData: 'WWDSF Summary Report',link:"https://insightbi.dfs.com/rubik/embed/mstr/96764E3611E0F68100100080723EA7A0/D48B4F461C47EFF9934D62AFCFF94A0D"},
-  {thisYear: 12.88 , lastYear:32.2 , reportData: 'Market Basket Analysis',link:"http://ec2-18-138-237-66.ap-southeast-1.compute.amazonaws.com:8085/ai_dashboard/html/image-recognition.html"},
-  {thisYear: 12.88,lastYear:32.2 , reportData:'Image Similarity Search' ,link:'http://ec2-18-138-237-66.ap-southeast-1.compute.amazonaws.com:8085/ai-dashboard/ProductRecommendation.html' },
- 
-];
 
 @Component({
   selector: 'app-updatedtable',
@@ -27,16 +15,77 @@ const ELEMENT_DATA: Table[] = [
 })
 export class UpdatedtableComponent implements OnInit {
 
-  constructor() { }
-  // dataSource!: MatTableDataSource<Table>;
+  displayedColumns: string[] = [];
+  columnsToDisplay: string[] = [];
+  data: any = [];
+  isVisible = true;
+  selectedValue: string | undefined;
+  public questions: { id: number, name: string }[] = data;
+  dataset: any;
+  metadata: any=[];
 
 
-  ngOnInit(): void {
+
+  constructor(private updatedTableService: UpdatedTableService,
+    private searchBarService: SearchBarService,
+    private tableService: TableService) {
   }
 
-  displayedColumns: string[] = [ 'thisYear','lastYear','reportData'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-  
+  ngOnInit() {
+
+    this.tableService.getDataset().subscribe((response: any) => {
+      this.dataset = response;
+      this.displayedColumns = this.dataset.columnNames;
+      this.columnsToDisplay = this.displayedColumns;
+
+      this.dataset.data.forEach((data: any, index1: any) => {
+        let datatemp: any = {};
+        this.displayedColumns.forEach((key: any, index2: any) => {
+          datatemp[key] = data[index2];
+        });
+        this.data.push(datatemp);
+      });
+
+    });
+
+    this.tableService.getMetadata().subscribe((response: any) => {
+      
+
+      this.displayedColumns = Object.keys(response[0]); 
+      console.log("Displayed Names",this.displayedColumns);
+      this.columnsToDisplay = this.displayedColumns;
+      console.log("Columns name",this.columnsToDisplay);
+      Object.values(response[0]).forEach((value:any, index) => {
+        let datatemp: any = {};
+        this.displayedColumns.forEach((key: any, index2: any) => {
+          datatemp[key] = value[index2];
+        });
+        this.metadata.push(datatemp);
+
+       });
 
 
+      console.log("************", this.metadata);
+    })
+
+  }
+
+  onSelect(event: TypeaheadMatch): void {
+    this.isVisible = false;
+  }
+
+
+  getTableDataset() {
+    this.tableService.getDataset().subscribe((response: any) => {
+      this.dataset = response;
+    })
+  }
+
+
+  getTableMetaData() {
+    this.tableService.getMetadata().subscribe((response: any) => {
+      this.metadata = response;
+      console.log("*****************", this.metadata);
+    })
+  }
 }

@@ -6,7 +6,7 @@ import { FormGroup } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
-export class SearchBarService {
+export class UpdatedTableService {
 
 
   constructor(private http: HttpClient) { }

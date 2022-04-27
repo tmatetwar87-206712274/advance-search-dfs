@@ -1,79 +1,49 @@
-
-
 <div class="maindiv">
   <div class="header">
-    <!-- <img class="logo" [src]="imageSrc" /> -->
     <div class="header-right">
       <a (click)="onClick()" href="#home">Logout</a>
 
     </div>
   </div>
 
-  <div class="main">
+  <div class="main " [ngClass]="{'tableContent' : !isVisible}">
 
-    <!-- Actual search box -->
     <div class="autocomplete form-group has-search">
       <span class="fa fa-search form-control-feedback"></span>
       <input type="text" class="form-control" [(ngModel)]="selectedValue" [typeahead]="questions"
         typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadMinLength]=0
         (typeaheadOnSelect)="onSelect($event)" class="form-control" placeholder="What are you looking for?">
     </div>
+    <span class="searchlabel">Search result</span>
 
-  </div>
+    <div class="tabData" [hidden]="isVisible">
+        <span class="text-left"><b>Top Results</b></span>
 
-   <div [hidden]="isVisible" class="row">
-    <app-table></app-table>
-<!-- 
-    <div class="column">
-      <table class=" center table table-bordered">
-        <thead>
-          <tr class="headers">
-            <th colspan="3">Dataset Search Result</th>
-            <th colspan="2">Metadata Search Result</th>
-          </tr>
-          <tr>
-            <th>Sales</th>
-            <th>Location</th>
-            <th>Year</th>
-            <th>Resource Name</th>
-            <th>Source Link</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="even">
-            <td>1045</td>
-            <td>Macau</td>
-            <td>2018</td>
-            <td>Test Report</td>
-            <td>5</td>
-          </tr>
-          <tr class="odd">
-            <td>1046</td>
-            <td>Macau</td>
-            <td>2019</td>
-            <td>Demo Report</td>
-            <td>6</td>
-          </tr>
-        </tbody>
+      <table mat-table [dataSource]="dataSet" class="mat-elevation-z8">
+        <ng-container [matColumnDef]="column" *ngFor="let column of datasetColumns">
+          <th class="table1" mat-header-cell *matHeaderCellDef> {{column}} </th>
+          <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="datasetcolumnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: datasetcolumnsToDisplay;"></tr>
       </table>
-    </div> -->
+
+        <span><b>Top Reports</b></span>
+      <table mat-table [dataSource]="metadata" class="table2">
+        <ng-container [matColumnDef]="column" *ngFor="let column of metadataColumns">
+          <th class="table2" mat-header-cell *matHeaderCellDef> {{column}} </th>
+          <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="metadatacolumnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: metadatacolumnsToDisplay;"></tr>
+      </table>
+
+    </div>
 
   </div>
 
-  <!-- <p-table div [hidden]="isVisible" [value]="tableData" [columns]="columns" responsiveLayout="scroll">
-    <ng-template pTemplate="header" let-columns>
-        <tr>
-            <th *ngFor="let col of columns">
-                {{col.header}}
-            </th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr>
-            <td *ngFor="let col of columns">
-                {{rowData[col.field]}}
-            </td>
-        </tr>
-    </ng-template>
-</p-table> -->
- </div>
+
+
+</div>

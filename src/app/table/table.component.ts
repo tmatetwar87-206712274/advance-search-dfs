@@ -17,20 +17,6 @@ export interface Table {
   resourse:string;
 }
 
-
-// const ELEMENT_DATA: Table[] = [
-//   {year: 2018,sales:1045,location:"India", name: 'Nidhi', link: 'https://jsonplaceholder.typicode.com/users',frequency:2018, resourse:"loremipsun"},
-//   {year: 2015, sales:1045,location:"India",name: 'Utkarsha', link: 'https://jsonplaceholder.typicode.com/users', frequency:2019,resourse:"loremipsun"},
-//   {year: 2019,sales:1045,location:"India", name: 'Ekta', link: 'https://jsonplaceholder.typicode.com/users',frequency: 2018,resourse:"loremipsun" },
-//   {year: 2018, sales:1045,location:"India",name: 'Nyasa',link: 'https://jsonplaceholder.typicode.com/users', frequency: 2019, resourse:"loremipsun"},
-//   {year: 2020,sales:1045, location:"India",name: 'Anurag',link: 'https://jsonplaceholder.typicode.com/users', frequency: 2018, resourse:"lorem ipsun"},
-//   {year: 2019,sales:1045,location:"India", name: 'Sarang', link: 'https://jsonplaceholder.typicode.com/users', frequency: 2019,resourse:"lorem ipsun"},
-//   {year: 2016,sales:1045,location:"India", name: 'Purvansha', link: 'https://jsonplaceholder.typicode.com/users', frequency: 2018,resourse:"lorem ipsun"},
-//   {year: 2019,sales:1045,location:"India", name: 'Kimaya', link: 'https://jsonplaceholder.typicode.com/users', frequency: 2019,resourse:"lorem ipsun"},
-//   {year: 2019, sales:1045,location:"India",name: 'Lekha',link: 'https://jsonplaceholder.typicode.com/users', frequency: 2018,resourse:"lorem ipsun"},
-//   {year: 2018,sales:1045,location:"India", name: 'Ravi',link: 'https://jsonplaceholder.typicode.com/users', frequency: 2019,resourse:"lorem ipsun"},
-// ];
-
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -47,20 +33,16 @@ export class TableComponent implements OnInit {
   public newArr=[];
   selectedItem: any;
   results:any;
-  // dataSource!: MatTableDataSource<Table>;
   
   constructor(private service:TableService ,private http: HttpClient,private dialog: MatDialog) { }
 
   displayedColumns: string[] = [ 'sales','location','year','name','link', 'resourse','frequency' ,'deleteEmployee'];
-  //  dataSource = new MatTableDataSource(ELEMENT_DATA);
   
   
    dataSource!: MatTableDataSource<Table>;
 
   @ViewChild(MatSort) sort = new MatSort();
  
-
-
   openDialogWithTemplateRef(templateRef: TemplateRef<any>,element:any) {
     this.slectedRowData=[]
    var data=element;
@@ -127,7 +109,6 @@ export class TableComponent implements OnInit {
     this.table=[]
    this.service.getDataset().subscribe((response:any )=> {
    this.table = response;
-    // console.log("******************",response);
    })
 }
 

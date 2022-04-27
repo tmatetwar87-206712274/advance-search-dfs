@@ -31,17 +31,9 @@ export class loginPageComponent implements OnInit {
 
   onSubmit() {
    
-  //formData.append('rememberme',"false");
     this.loginPageService.isLogged(this.myForm).subscribe(() => {
-      this.router.navigate(['/search']);
-
+      this.router.navigate(['/updatedTable']);
     
-    //   this.showSuccess();
-
-    //   this.myForm.reset();
-    // },
-    //   error => {
-    //     this.showError();
      });
 
   }
