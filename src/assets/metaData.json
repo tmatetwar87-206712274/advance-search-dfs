@@ -1,23 +1,14 @@
-[{
-    "RESOURCENAME": {
-        "0": "Beauty Intelligence - Sku Focus",
-        "1": "Product Class Dashboard",
-        "2": "Beauty In-Stock Dashboard"
-    },
-    "SOURCELINK": {
-        "0": "https:\/\/insightbi.dfs.com\/rubik\/embed\/mstr\/96764E3611E0F68100100080723EA7A0\/B24D5DE811EB1DAA40B50080EF75130C\/K53--K46",
-        "1": "https:\/\/insightbi.dfs.com\/rubik\/embed\/mstr\/96764E3611E0F68100100080723EA7A0\/75F66800104D3C479024048F0D22E9B1\/WCF1883B1A00D4D0DADA629344103FDFA--K46",
-        "2": "https:\/\/insightbi.dfs.com\/MicroStrategyLibrary\/app\/96764E3611E0F68100100080723EA7A0\/AE821F9411EB18FC59C30080EF05409D\/K53--K46"
-    },
-    "MATCHED_KEYWORDS": {
-        "0": "['location', 'sales', '2020']",
-        "1": "['location', 'sales']",
-        "2": "['location', 'sales']"
-    },
-    "USERCOUNT": {
-        "0": 0,
-        "1": 37,
-        "2": 35
+[
+    {
+        "RESOURCENAME": {
+            "0": "Beauty Intelligence - Sku Focus",
+            "1": "Product Class Dashboard",
+            "2": "Beauty In-Stock Dashboard"
+        },
+        "SOURCELINK": {
+            "0": "https:\/\/insightbi.dfs.com\/rubik\/embed\/mstr\/96764E3611E0F68100100080723EA7A0\/B24D5DE811EB1DAA40B50080EF75130C\/K53--K46",
+            "1": "https:\/\/insightbi.dfs.com\/rubik\/embed\/mstr\/96764E3611E0F68100100080723EA7A0\/75F66800104D3C479024048F0D22E9B1\/WCF1883B1A00D4D0DADA629344103FDFA--K46",
+            "2": "https:\/\/insightbi.dfs.com\/MicroStrategyLibrary\/app\/96764E3611E0F68100100080723EA7A0\/AE821F9411EB18FC59C30080EF05409D\/K53--K46"
+        }
     }
-}
 ]
