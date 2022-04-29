@@ -1,9 +1,6 @@
 /* Styles for wrapping the search box */
 
-.main {
-  width: 50%;
-  margin: 50px auto;
-}
+
 
 /* Bootstrap 4 text input with search icon */
 
@@ -22,6 +19,10 @@
   pointer-events: none;
 }
 
+.img{
+  height: 38px;
+  margin: 8px;
+}
 .header {
   overflow: hidden;
   background-color: black;
@@ -77,9 +78,19 @@
   }
 }
 
+tr.mat-header-row{
+  height: 41px;
+}
+
+tr.mat-row, tr.mat-footer-row {
+  height: 40px;
+}
+
 .autocomplete {
-  width: 70%;
-  margin: 12px 33px;
+  width: 100%;
+    /* margin: 12px 12px; */
+    /* padding-right: 150px;
+    padding-top: 50px */
 }
 
 .maindiv {
@@ -114,11 +125,31 @@
   clear: both;
   display: table;
 }
+table{
+  width: 100%;
+
+}
+
+
+table tr{
+  width: 100%;
+}
+
+table td{
+  width: 50%;
+  text-align: center;
+}
 
 .tabData {
   border: 1px solid lightgrey;
-  margin: 32px;
+  padding: 0 15px 15px;
 }
+
+.headingAlignment{
+  margin:15px 0 10px;
+}
+
+
 
 table {
   border-collapse: collapse;
@@ -141,6 +172,15 @@ table {
   color: white;
 }
 
+td{
+  font-size: 12px;
+    color: black;
+    /* text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    width: 315px */
+}
 :host {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
@@ -412,29 +452,20 @@ svg#clouds {
   color: black;
 }
 
-table {
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 5%;
-
-}
-
 .searchlabel{
   color:lightslategray;
   float: left;
 }
-.container {
-  background-image: url(../../assets/data/search.jpeg);
-  height: 100%;
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 
 .main {
-  width: 50%;
-  margin: 50px auto;
+  display: flex;
+    align-items: center;
+    width: 40%;
+    padding: 15px;
+    margin-left: auto;
+    flex-wrap: wrap;
+    margin-top: 32px;
 }
 
 button {
@@ -463,13 +494,27 @@ button {
 .mat-header-cell {
   background-color: #a0e8c5;
   color: black;
+  text-align: center;
+}
+
+.mat-column-SOURCELINK{
+  color: blue;
 }
 
 .table2 .mat-header-cell {
   background-color: #a8d2e8;
   color: black;
+  text-align: center;
 }
 
+table{
+  table-layout: fixed;
+}
+mat-cell > span.truncate-text {
+  text-overflow: ellipsis; 
+  overflow: hidden; 
+  white-space: nowrap;
+}
 
 .pading-td {
   padding: 10px;
@@ -482,6 +527,7 @@ mat-colum-header-row-second-group {
 
 th {
   background-color: rgb(212, 209, 209);
+  text-align: center;
   /* color: white; */
 }
 

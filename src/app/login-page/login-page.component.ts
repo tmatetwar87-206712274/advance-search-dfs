@@ -32,7 +32,7 @@ export class loginPageComponent implements OnInit {
   onSubmit() {
    
     this.loginPageService.isLogged(this.myForm).subscribe(() => {
-      this.router.navigate(['/updatedTable']);
+      this.router.navigate(['/search']);
     
      });
 

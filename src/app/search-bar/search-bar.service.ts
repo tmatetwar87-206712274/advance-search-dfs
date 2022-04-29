@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders,HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { FormGroup } from '@angular/forms';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +9,21 @@ export class SearchBarService {
 
 
   constructor(private http: HttpClient) { }
-//   getData() {
-//     return this.http.get<any>('assets/data/tabledata.json')
-//     .toPromise()
-//     .then(data => { return data; });
-// }
 
 
+  getDataset(value:any) {
+    return this.http.post("http://10.251.2.20:8880/search/"+ value, {
+      headers: new HttpHeaders({
+        'accept': 'application/json'
+      })
+    })
+  }
+
+  getMetadata(value:any) {
+    return this.http.post("http://10.251.2.20:8880/reports/" + value, {
+      headers: new HttpHeaders({
+        'accept': 'application/json'
+      })
+    })
+  }
 }

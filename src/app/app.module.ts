@@ -13,8 +13,6 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { loginPageComponent } from './login-page/login-page.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {TableModule} from 'primeng/table';
-import { TableComponent } from './table/table.component';
-import { AgTableComponent } from './ag-table/ag-table.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ColumnGroupingComponent } from './column-grouping/column-grouping.component';
 import {MatTableModule} from '@angular/material/table'
@@ -23,9 +21,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatSortModule} from '@angular/material/sort';
 import {MatButtonModule} from '@angular/material/button';
-import { UpdatedtableComponent } from './updatedtable/updatedtable.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-// import {Limit} from "../Pipes/limit";
 
 
 @NgModule({
@@ -33,11 +29,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AppComponent,
     SearchBarComponent,
     loginPageComponent,
-    TableComponent,
-    AgTableComponent,
-    ColumnGroupingComponent,
-    UpdatedtableComponent,
-    // Limit
+    ColumnGroupingComponent
     
 
   ],
