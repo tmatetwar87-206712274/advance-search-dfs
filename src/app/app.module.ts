@@ -13,8 +13,6 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { loginPageComponent } from './login-page/login-page.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {TableModule} from 'primeng/table';
-import { AgGridModule } from 'ag-grid-angular';
-import { ColumnGroupingComponent } from './column-grouping/column-grouping.component';
 import {MatTableModule} from '@angular/material/table'
 import {MatIconModule} from '@angular/material/icon'
 import {MatDialogModule} from '@angular/material/dialog';
@@ -29,7 +27,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AppComponent,
     SearchBarComponent,
     loginPageComponent,
-    ColumnGroupingComponent
     
 
   ],
@@ -46,13 +43,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     TableModule,
     MatTableModule,
     MatIconModule,
-    AgGridModule.withComponents([]),
     MatDialogModule,
     MatTooltipModule,
     MatSortModule,
     MatButtonModule,
     FlexLayoutModule
-    //  AgGridModule
 
   ],
   providers: [],
