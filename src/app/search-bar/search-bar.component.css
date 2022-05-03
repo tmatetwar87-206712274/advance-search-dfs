@@ -127,6 +127,7 @@ tr.mat-row, tr.mat-footer-row {
 }
 table{
   width: 100%;
+  table-layout: fixed;
 
 }
 
@@ -136,7 +137,6 @@ table tr{
 }
 
 table td{
-  width: 50%;
   text-align: center;
 }
 
@@ -175,11 +175,12 @@ table {
 td{
   font-size: 12px;
     color: black;
-    /* text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    word-wrap: initial;
     overflow: hidden;
-    display: inline-block;
-    white-space: nowrap;
-    width: 315px */
+  
+    max-height: 2em;
+   
 }
 :host {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -499,16 +500,21 @@ button {
 
 .mat-column-SOURCELINK{
   color: blue;
+  cursor: pointer;
+}
+
+.mat-column-SOURCELINK a{
+  pointer-events: auto !important;
+}
+
+.mat-cell a{
+  pointer-events: none;
 }
 
 .table2 .mat-header-cell {
   background-color: #a8d2e8;
   color: black;
   text-align: center;
-}
-
-table{
-  table-layout: fixed;
 }
 mat-cell > span.truncate-text {
   text-overflow: ellipsis; 

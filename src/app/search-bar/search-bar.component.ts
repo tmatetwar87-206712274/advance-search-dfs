@@ -44,12 +44,11 @@ export class SearchBarComponent {
   metadata: any = [];
   dataSet: any = [];
   hyperLink: any;
-
-
+  sourceLink = "SOURCELINK";
 
   constructor(
     private router: Router,
-    private searchBarService: SearchBarService  ) { }
+    private searchBarService: SearchBarService) { }
 
   ngOnInit() {
     // this.tableService.getDataset().subscribe((response: any) => {
@@ -128,16 +127,12 @@ export class SearchBarComponent {
     });
 
 
-    this.searchBarService.getMetadata(event.value).subscribe((response: any) => {
+    this.searchBarService.getMetadata().subscribe((response: any) => {
       var values: any;
       this.metadataColumns = Object.keys(response[0]);
       var index = this.metadataColumns.indexOf("SOURCELINK");
-      // if (index !== -1) {
-      //   this.metadataColumns.splice(index, 1);
-      // }
 
-      // this.hyperLink = response[0].SOURCELINK;
-      // delete response[0].SOURCELINK
+
 
       this.metadatacolumnsToDisplay = this.metadataColumns;
       let tmpvalues: any;
@@ -165,6 +160,10 @@ export class SearchBarComponent {
     });
   }
 
+  goToLink(url: string) {
+    window.open(url, "_blank");
+  }
+  
   onClick() {
     this.router.navigate(['']);
   }

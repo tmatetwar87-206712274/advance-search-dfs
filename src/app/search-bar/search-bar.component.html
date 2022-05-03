@@ -11,7 +11,7 @@
 
       <div *ngIf="isVisible">
         <img class="img" src="/assets/data/helloicon.png" alt="image">
-  
+
         <span>Hey User !</span>
       </div>
       <div class="autocomplete form-group has-search">
@@ -21,41 +21,37 @@
           (typeaheadOnSelect)="onSelect($event)" class="form-control" placeholder="What are you looking for?">
       </div>
       <!-- <span class="searchlabel">Search result</span> -->
-  
+
       <div class="tabData" *ngIf="isVisible">
-          <div class="headingAlignment"><b>Top Results</b></div>
-  
+        <div class="headingAlignment"><b>Top Results</b></div>
+
         <table mat-table [dataSource]="dataSet" class="mat-elevation-z8">
           <ng-container [matColumnDef]="column" *ngFor="let column of datasetColumns">
             <th class="table1" mat-header-cell *matHeaderCellDef> {{column}} </th>
             <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
           </ng-container>
-  
+
           <tr mat-header-row *matHeaderRowDef="datasetcolumnsToDisplay"></tr>
           <tr mat-row *matRowDef="let row; columns: datasetcolumnsToDisplay;"></tr>
         </table>
-  
-          <div class="headingAlignment"><b>Top Reports</b></div>
+
+        <div class="headingAlignment"><b>Top Reports</b></div>
         <table mat-table [dataSource]="metadata" class="table2">
           <ng-container [matColumnDef]="column" *ngFor="let column of metadataColumns">
             <th class="table2" mat-header-cell *matHeaderCellDef> {{column}} </th>
-            <mat-cell *matCellDef="let element"> 
-              <span class="truncate-text">
+            <td mat-cell *matCellDef="let element"> <a (click)="goToLink(element[column])">
                 {{element[column]}}
-              </span>
-            </mat-cell>
+              </a> </td>
+
+
           </ng-container>
-  
+
           <tr mat-header-row *matHeaderRowDef="metadatacolumnsToDisplay"></tr>
           <tr mat-row *matRowDef="let row; columns: metadatacolumnsToDisplay;"></tr>
         </table>
-  
+
       </div>
-  
+
     </div>
   </div>
-
-
-
-
 </div>

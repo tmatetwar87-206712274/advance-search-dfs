@@ -12,18 +12,13 @@ export class SearchBarService {
 
 
   getDataset(value:any) {
-    return this.http.post("http://10.251.2.20:8880/search/"+ value, {
-      headers: new HttpHeaders({
-        'accept': 'application/json'
-      })
-    })
+    return this.http.get<any>('assets/dataSet.json');
+
   }
 
-  getMetadata(value:any) {
-    return this.http.post("http://10.251.2.20:8880/reports/" + value, {
-      headers: new HttpHeaders({
-        'accept': 'application/json'
-      })
-    })
+  getMetadata() {
+    return this.http.get<any>('assets/metaData.json');
+    // .toPromise()
+    // .then(data => { return data; });
   }
 }
