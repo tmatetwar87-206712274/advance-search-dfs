@@ -58,12 +58,9 @@
       text-align: center;
       padding: 4px 0px 8px 0px;
   }
-   
-  body{
-    background-image: url(../../assets/data/login_image.jpg);
-
-  }
+    
   .maindiv {
+    background-image: url(../../assets/data/login_image.jpg);
   /* Full height */
   height: 100%;
   /* Center and scale the image nicely */
