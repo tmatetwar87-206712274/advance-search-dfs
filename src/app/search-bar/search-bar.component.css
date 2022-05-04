@@ -88,7 +88,7 @@ tr.mat-row, tr.mat-footer-row {
     padding-top: 50px */
 }
 
-.mat-typography{
+body{
   background-image: url(../../assets/data/search.jpeg);
   height: 100%;
   /* Center and scale the image nicely */
