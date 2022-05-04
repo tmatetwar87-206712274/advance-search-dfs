@@ -1,8 +1,8 @@
 [
     {"id": 1, "name": "what is the time sales today?"},
-    {"id": 2, "name": "Which location made the highest sales last year? "},
-    {"id": 3, "name": "Which brand has the biggest variance versus last year?"},
-    {"id": 4, "name": "How much did we make in fashion in Feb 2019?"},
-    {"id": 5, "name": "What is the sales performance for last month?  "}
+    {"id": 2, "name": "What is yesterday sales?"},
+    {"id": 3, "name": "Which location made the least sales in 2020?"},
+    {"id": 4, "name": "Which are the top 3 products by sales in Mar 2021?"},
+    {"id": 5, "name": "Which transaction made the highest sales in 2021?"}
 
   ]

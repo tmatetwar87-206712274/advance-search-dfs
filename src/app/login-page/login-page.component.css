@@ -1,80 +1,78 @@
-
 /* BASIC */
 
 
-  a {
-    color: #92badd;
-    display:inline-block;
-    text-decoration: none;
-    font-weight: 400;
-  }
-  
+a {
+  color: #92badd;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}
 
-  
-  
-  
-  /* STRUCTURE */
-  
-  .wrapper {
-    padding: 20px;
-    margin: 20px;
-    box-sizing: border-box;
-    position: fixed;
+
+
+
+
+/* STRUCTURE */
+
+.wrapper {
+  padding: 20px;
+  margin: 20px;
+  box-sizing: border-box;
+  position: fixed;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
   width: 20%;
-  }
-  
+}
+
 /* Simple CSS3 Fade-in Animation */
 .underlineHover:after {
-    display: block;
-    left: 0;
-    bottom: -10px;
-    width: 0;
-    height: 2px;
-    background-color: #56baed;
-    content: "";
-    transition: width 0.2s;
-  }
-  
-  .underlineHover:hover {
-    color: #0d0d0d;
-  }
-  
-  .underlineHover:hover:after{
-    width: 100%;
-  }
-  
-   .logo {
-    margin : 0px 15px 23px 27px;
-  }
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
 
-  .form-control{
-      background-color: #80808014;
-      border: none !important;
-      width: 100%;
-      text-align: center;
-      padding: 4px 0px 8px 0px;
-  }
-    
-  .maindiv {
-    background-image: url(../../assets/data/login_image.jpg);
-  /* Full height */
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after {
+  width: 100%;
+}
+
+.logo {
+  margin: 0px 15px 23px 27px;
+}
+
+.form-control {
+  background-color: #80808014;
+  border: none !important;
+  width: 100%;
+  text-align: center;
+  padding: 4px 0px 8px 0px;
+}
+
+.mat-typography {
+  background-image: url(../../assets/data/login_image.jpg);
   height: 100%;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  }
+}
 
-  .form-group{
-      text-align: center;
-  }
+.form-group {
+  text-align: center;
+}
 
-  form{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}

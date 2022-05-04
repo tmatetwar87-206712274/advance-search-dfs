@@ -4,7 +4,7 @@ import data from '../../assets/data/data.json';
 import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { SearchBarService } from './search-bar.service';
-
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'search-bar',
@@ -48,66 +48,21 @@ export class SearchBarComponent {
 
   constructor(
     private router: Router,
-    private searchBarService: SearchBarService) { }
+    private searchBarService: SearchBarService,
+    private SpinnerService: NgxSpinnerService) { }
 
   ngOnInit() {
-    // this.tableService.getDataset().subscribe((response: any) => {
 
-    //   this.dataset = response;
-    //   this.datasetColumns = this.dataset.columnNames;
-    //   this.datasetcolumnsToDisplay = this.datasetColumns;
+    this.searchBarService.searchAuth().subscribe((response: any) => {});
+    this.searchBarService.reportAuth().subscribe((response: any) => {});
 
-    //   this.dataset.data.forEach((data: any, index1: any) => {
-    //     let datatemp: any = {};
-    //     this.datasetColumns.forEach((key: any, index2: any) => {
-    //       datatemp[key] = data[index2];
-    //     });
-    //     this.dataSet.push(datatemp);
-    //   });
-
-    // });
-
-    // this.tableService.getMetadata().subscribe((response: any) => {
-    //   var values: any;
-    //   this.metadataColumns = Object.keys(response[0]);
-    //   var index = this.metadataColumns.indexOf("SOURCELINK");
-    //   // if (index !== -1) {
-    //   //   this.metadataColumns.splice(index, 1);
-    //   // }
-
-    //   // this.hyperLink = response[0].SOURCELINK;
-    //   // delete response[0].SOURCELINK
-
-    //   this.metadatacolumnsToDisplay = this.metadataColumns;
-    //   let tmpvalues: any;
-    //   tmpvalues = Object.values(response);
-    //   let a = Object.keys(response[0])
-
-    //   let b = Object.keys(tmpvalues[0][a[0]]).length;
-
-    //   for (var i = 0; i < b; i++) {
-    //     tmpvalues.forEach((data: any, index1: any) => {
-    //       let datatemp: any = {};
-
-    //       this.metadataColumns.forEach((key: any, index2: any) => {
-
-    //         datatemp[key] = data[key][i];
-
-    //       });
-    //       this.metadata.push(datatemp);
-
-
-    //     });
-
-    //   }
-
-    // });
-
-
+    
   }
 
 
   onSelect(event: TypeaheadMatch): void {
+    this.showSpinner();
+
     this.isVisible = true;
 
     this.searchBarService.getDataset(event.value).subscribe((response: any) => {
@@ -127,17 +82,15 @@ export class SearchBarComponent {
     });
 
 
-    this.searchBarService.getMetadata().subscribe((response: any) => {
-      var values: any;
-      this.metadataColumns = Object.keys(response[0]);
-      var index = this.metadataColumns.indexOf("SOURCELINK");
-
-
+    this.searchBarService.getMetadata(event.value).subscribe((response: any) => {
+      var resultset: any = [];
+      resultset.push(response);
+      this.metadataColumns = Object.keys(resultset[0]);
 
       this.metadatacolumnsToDisplay = this.metadataColumns;
       let tmpvalues: any;
-      tmpvalues = Object.values(response);
-      let a = Object.keys(response[0])
+      tmpvalues = Object.values(resultset);
+      let a = Object.keys(resultset[0])
 
       let b = Object.keys(tmpvalues[0][a[0]]).length;
 
@@ -151,20 +104,32 @@ export class SearchBarComponent {
 
           });
           this.metadata.push(datatemp);
-
-
         });
 
       }
 
     });
+    this.hideSpinner();
+
   }
 
   goToLink(url: string) {
     window.open(url, "_blank");
   }
-  
+
   onClick() {
     this.router.navigate(['']);
   }
+
+  public showSpinner(): void {
+    this.SpinnerService.show();
+  }
+
+  public hideSpinner(): void {
+
+    setTimeout(() => {
+      this.SpinnerService.hide();
+    }, 10000); // 5 seconds
+  }
+
 }

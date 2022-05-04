@@ -1,6 +1,5 @@
 
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -20,7 +19,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatSortModule} from '@angular/material/sort';
 import {MatButtonModule} from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
 
 @NgModule({
   declarations: [
@@ -47,7 +45,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatTooltipModule,
     MatSortModule,
     MatButtonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
 
   ],
   providers: [],

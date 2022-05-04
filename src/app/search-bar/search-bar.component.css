@@ -1,8 +1,3 @@
-/* Styles for wrapping the search box */
-
-
-
-/* Bootstrap 4 text input with search icon */
 
 .has-search .form-control {
   padding-left: 2.375rem;
@@ -93,15 +88,15 @@ tr.mat-row, tr.mat-footer-row {
     padding-top: 50px */
 }
 
-.maindiv {
+.mat-typography{
   background-image: url(../../assets/data/search.jpeg);
   height: 100%;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
 
+}
 * {
   box-sizing: border-box;
 }
