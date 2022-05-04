@@ -24,9 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   declarations: [
     AppComponent,
     SearchBarComponent,
-    loginPageComponent,
-    
-
+    loginPageComponent
   ],
   imports: [
     BrowserModule,
