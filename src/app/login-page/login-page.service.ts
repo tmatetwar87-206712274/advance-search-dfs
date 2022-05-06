@@ -18,10 +18,10 @@ export class LoginPageService {
     .set('rememberme', data.value['rememberme'])
 
     return this.http.post("https://my2.thoughtspot.cloud/callosum/v1/tspublic/v1/session/login", body, {
-      headers: new HttpHeaders({
+    headers: new HttpHeaders({
         'Content-Type': 'application/x-www-form-urlencoded',
-        'X-Requested-By': 'ThoughtSpot',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'X-Requested-By': 'ThoughtSpot'        
       })
     });
 

@@ -1,9 +1,9 @@
 <div class="maindiv">
   <div class="header">
-    <div class="header-right">
+    <!-- <div class="header-right">
       <a (click)="onClick()" href="#home">Logout</a>
 
-    </div>
+    </div> -->
   </div>
 
   <div class="container">
@@ -23,8 +23,8 @@
       <!-- <span class="searchlabel">Search result</span> -->
 
       <div class="tabData" *ngIf="isVisible">
-        <div class="headingAlignment"><b>Top Results</b></div>
-
+        <!-- <div class="headingAlignment"><b>Top Results</b></div> -->
+<!-- 
         <table mat-table [dataSource]="dataSet" class="mat-elevation-z8">
           <ng-container [matColumnDef]="column" *ngFor="let column of datasetColumns">
             <th class="table1" mat-header-cell *matHeaderCellDef> {{column}} </th>
@@ -33,7 +33,7 @@
 
           <tr mat-header-row *matHeaderRowDef="datasetcolumnsToDisplay"></tr>
           <tr mat-row *matRowDef="let row; columns: datasetcolumnsToDisplay;"></tr>
-        </table>
+        </table> -->
 
         <div class="headingAlignment"><b>Top Reports</b></div>
         <table mat-table [dataSource]="metadata" class="table2">
@@ -43,7 +43,7 @@
                 {{element[column]}}
               </a> </td>
 
-
+              {{metadata}}
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="metadatacolumnsToDisplay"></tr>
@@ -55,6 +55,8 @@
     </div>
   </div>
 </div>
+
+
 
      
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  

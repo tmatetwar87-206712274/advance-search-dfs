@@ -78,7 +78,7 @@ tr.mat-header-row{
 }
 
 tr.mat-row, tr.mat-footer-row {
-  height: 40px;
+  height: 55px;
 }
 
 .autocomplete {
@@ -173,7 +173,7 @@ td{
     text-overflow: ellipsis;
     word-wrap: initial;
     overflow: hidden;
-  
+  line-height: normal;
     max-height: 2em;
    
 }

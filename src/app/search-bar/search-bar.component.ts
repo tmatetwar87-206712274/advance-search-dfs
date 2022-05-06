@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { SearchBarService } from './search-bar.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'search-bar',
@@ -49,40 +50,46 @@ export class SearchBarComponent {
   constructor(
     private router: Router,
     private searchBarService: SearchBarService,
-    private SpinnerService: NgxSpinnerService) { }
+    private SpinnerService: NgxSpinnerService,
+    private toastrService: ToastrService) { }
 
   ngOnInit() {
 
-    this.searchBarService.searchAuth().subscribe((response: any) => {});
-    this.searchBarService.reportAuth().subscribe((response: any) => {});
+    //this.searchBarService.searchAuth().subscribe((response: any) => { });
+    this.searchBarService.reportAuth().subscribe((response: any) => { });
 
-    
   }
 
 
   onSelect(event: TypeaheadMatch): void {
-    this.showSpinner();
 
-    this.isVisible = true;
+    this.dataSet=[];
+    this.metadata=[];
+    this.SpinnerService.show();
 
-    this.searchBarService.getDataset(event.value).subscribe((response: any) => {
+    this.isVisible = false;
 
-      this.dataset = response;
-      this.datasetColumns = this.dataset.columnNames;
-      this.datasetcolumnsToDisplay = this.datasetColumns;
+    // this.searchBarService.getDataset(event.value).subscribe((response: any) => {
+    //   this.isVisible = true;
+    //   this.dataset = response;
+    //   this.datasetColumns = this.dataset.columnNames;
+    //   this.datasetcolumnsToDisplay = this.datasetColumns;
 
-      this.dataset.data.forEach((data: any, index1: any) => {
-        let datatemp: any = {};
-        this.datasetColumns.forEach((key: any, index2: any) => {
-          datatemp[key] = data[index2];
-        });
-        this.dataSet.push(datatemp);
-      });
+    //   this.dataset.data.forEach((data: any, index1: any) => {
+    //     let datatemp: any = {};
+    //     this.datasetColumns.forEach((key: any, index2: any) => {
+    //       datatemp[key] = data[index2];
+    //     });
+    //     this.dataSet.push(datatemp);
+    //   });
 
-    });
+    // }, (error) => {                              //Error callback
+    //   this.toastrService.error('Error');
+    // })
 
 
     this.searchBarService.getMetadata(event.value).subscribe((response: any) => {
+      this.isVisible = true;
       var resultset: any = [];
       resultset.push(response);
       this.metadataColumns = Object.keys(resultset[0]);
@@ -107,9 +114,11 @@ export class SearchBarComponent {
         });
 
       }
+      this.SpinnerService.hide();
 
-    });
-    this.hideSpinner();
+    }, (error) => {                              //Error callback
+      this.toastrService.error('Error');
+    })
 
   }
 
@@ -119,17 +128,6 @@ export class SearchBarComponent {
 
   onClick() {
     this.router.navigate(['']);
-  }
-
-  public showSpinner(): void {
-    this.SpinnerService.show();
-  }
-
-  public hideSpinner(): void {
-
-    setTimeout(() => {
-      this.SpinnerService.hide();
-    }, 10000); // 5 seconds
   }
 
 }

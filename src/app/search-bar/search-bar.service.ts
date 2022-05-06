@@ -11,17 +11,17 @@ export class SearchBarService {
   constructor(private http: HttpClient) { }
 
 
-  getDataset(value: any) {
-    let body = {};
-    body = { "search_query": value };
+  // getDataset(value: any) {
+  //   let body = {};
+  //   body = { "search_query": value };
 
-    return this.http.post("http://10.251.2.20:8889/DFS/KPI_Search/kpi_search/", body, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      })
-    })
-  }
+  //   return this.http.post("http://10.251.2.20:8889/DFS/KPI_Search/kpi_search/", body, {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json'
+  //     })
+  //   })
+  // }
 
   getMetadata(value: any) {
     let body = {};
@@ -35,16 +35,16 @@ export class SearchBarService {
     })
   }
 
-  searchAuth() {
-    return this.http.post("http://10.251.2.20:8889/DFS/KPI_Search/kpi_authcache/", {
-      headers: new HttpHeaders({
-        'Accept': 'application/json'
-      })
-    })
-  }
+  // searchAuth() {
+  //   return this.http.post("http://10.251.2.20:8889/DFS/KPI_Search/kpi_authcache/", {
+  //     headers: new HttpHeaders({
+  //       'Accept': 'application/json'
+  //     })
+  //   })
+  // }
 
   reportAuth(){
-    return this.http.post("http://10.251.2.20:8889/DFS/KPI_Search/kpi_authcache/", {
+    return this.http.post("http://10.251.2.20:8889/DFS/Report_Search/report_auth/", {
       headers: new HttpHeaders({
         'Accept': 'application/json'
       })
