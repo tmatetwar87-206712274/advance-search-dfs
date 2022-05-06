@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { SearchBarService } from './search-bar.service';
 import { NgxSpinnerService } from "ngx-spinner";
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'search-bar',
@@ -50,8 +49,7 @@ export class SearchBarComponent {
   constructor(
     private router: Router,
     private searchBarService: SearchBarService,
-    private SpinnerService: NgxSpinnerService,
-    private toastrService: ToastrService) { }
+    private SpinnerService: NgxSpinnerService) { }
 
   ngOnInit() {
 
@@ -117,7 +115,7 @@ export class SearchBarComponent {
       this.SpinnerService.hide();
 
     }, (error) => {                              //Error callback
-      this.toastrService.error('Error');
+      
     })
 
   }

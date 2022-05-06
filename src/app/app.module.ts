@@ -19,7 +19,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatSortModule} from '@angular/material/sort';
 import {MatButtonModule} from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -46,7 +45,6 @@ import { ToastrModule } from 'ngx-toastr';
     MatSortModule,
     MatButtonModule,
     FlexLayoutModule,
-    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
