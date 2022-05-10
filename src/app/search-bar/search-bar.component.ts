@@ -43,8 +43,7 @@ export class SearchBarComponent {
   dataset: any;
   metadata: any = [];
   dataSet: any = [];
-  hyperLink: any;
-  sourceLink = "SOURCELINK";
+  tmpmetaData: any = [];
 
   constructor(
     private router: Router,
@@ -59,10 +58,10 @@ export class SearchBarComponent {
   }
 
 
-  onSelect(event: TypeaheadMatch): void {
+  onSelect(event: any): void {
 
-    this.dataSet=[];
-    this.metadata=[];
+    this.dataSet = [];
+    this.metadata = [];
     this.SpinnerService.show();
 
     this.isVisible = false;
@@ -86,12 +85,17 @@ export class SearchBarComponent {
     // })
 
 
-    this.searchBarService.getMetadata(event.value).subscribe((response: any) => {
+    this.searchBarService.getMetadata(event).subscribe((response: any) => {
       this.isVisible = true;
       var resultset: any = [];
       resultset.push(response);
       this.metadataColumns = Object.keys(resultset[0]);
 
+      // this.tmpmetaData=this.metadataColumns;
+      // var index = this.metadataColumns.indexOf("SOURCELINK");
+      // if (index !== -1) {
+      //   this.metadataColumns.splice(index, 1);
+      // }
       this.metadatacolumnsToDisplay = this.metadataColumns;
       let tmpvalues: any;
       tmpvalues = Object.values(resultset);
@@ -112,20 +116,41 @@ export class SearchBarComponent {
         });
 
       }
+      this.tmpmetaData = this.metadata;
+      var index = this.metadatacolumnsToDisplay.indexOf("SOURCELINK");
+      if (index !== -1) {
+        this.metadatacolumnsToDisplay.splice(index, 1);
+      }
       this.SpinnerService.hide();
 
     }, (error) => {                              //Error callback
-      
+      console.log(error);
+      this.SpinnerService.hide();
+      this.isVisible=false;
+
     })
 
   }
 
   goToLink(url: string) {
-    window.open(url, "_blank");
+
+    for (var i = 0; i < this.tmpmetaData.length; i++) {
+      if (url == this.tmpmetaData[i]["RESOURCENAME"]) {
+        window.open(this.tmpmetaData[i]["SOURCELINK"], "_blank");
+        break;
+
+      }
+    }
   }
 
   onClick() {
     this.router.navigate(['']);
   }
 
+  keyUp(event: any): void {
+    if (event.code == 'Enter') {
+      this.onSelect(event.target.value);
+    }
+
+  }
 }

@@ -493,18 +493,10 @@ button {
   text-align: center;
 }
 
-.mat-column-SOURCELINK{
-  color: blue;
-  cursor: pointer;
-}
-
-.mat-column-SOURCELINK a{
-  pointer-events: auto !important;
-}
 
 .mat-cell a{
-  pointer-events: none;
-}
+  color: blue;
+  cursor: pointer;}
 
 .table2 .mat-header-cell {
   background-color: #a8d2e8;

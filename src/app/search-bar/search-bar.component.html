@@ -1,9 +1,9 @@
 <div class="maindiv">
   <div class="header">
-    <!-- <div class="header-right">
+    <div class="header-right">
       <a (click)="onClick()" href="#home">Logout</a>
 
-    </div> -->
+    </div>
   </div>
 
   <div class="container">
@@ -16,9 +16,9 @@
       </div>
       <div class="autocomplete form-group has-search">
         <span class="fa fa-search form-control-feedback"></span>
-        <input type="text" class="form-control" [(ngModel)]="selectedValue" [typeahead]="questions"
+        <input (keypress)="keyUp($event)" type="text" class="form-control" [(ngModel)]="selectedValue" [typeahead]="questions"
           typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadMinLength]=0
-          (typeaheadOnSelect)="onSelect($event)" class="form-control" placeholder="What are you looking for?">
+          (typeaheadOnBlur)="onSelect($event)" (typeaheadOnSelect)="onSelect($event.value)" class="form-control" placeholder="What are you looking for?">
       </div>
       <!-- <span class="searchlabel">Search result</span> -->
 

@@ -31,10 +31,10 @@ export class loginPageComponent implements OnInit {
 
   onSubmit() {
    
-    this.loginPageService.isLogged(this.myForm).subscribe(() => {
+    // this.loginPageService.isLogged(this.myForm).subscribe(() => {
       this.router.navigate(['/search']);
     
-     });
+     //});
 
   }
 
