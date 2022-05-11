@@ -1,4 +1,3 @@
-
 .has-search .form-control {
   padding-left: 2.375rem;
 }
@@ -14,10 +13,11 @@
   pointer-events: none;
 }
 
-.img{
+.img {
   height: 38px;
   margin: 8px;
 }
+
 .header {
   overflow: hidden;
   background-color: black;
@@ -74,22 +74,23 @@
   }
 }
 
-tr.mat-header-row{
+tr.mat-header-row {
   height: 41px;
 }
 
-tr.mat-row, tr.mat-footer-row {
+tr.mat-row,
+tr.mat-footer-row {
   height: 55px;
 }
 
 .autocomplete {
   width: 100%;
-    /* margin: 12px 12px; */
-    /* padding-right: 150px;
+  /* margin: 12px 12px; */
+  /* padding-right: 150px;
     padding-top: 50px */
 }
 
-body{
+body {
   background-image: url(../../assets/data/search.jpeg);
   height: 100%;
   /* Center and scale the image nicely */
@@ -98,6 +99,7 @@ body{
   background-size: cover;
 
 }
+
 * {
   box-sizing: border-box;
 }
@@ -115,9 +117,11 @@ body{
   margin-left: 366px;
 }
 
-.errorColor{
-  border:2px solid red;
+.errorBox {
+  color: white;
+  margin-left:70px;
 }
+
 
 /* Clearfix (clear floats) */
 .row::after {
@@ -125,18 +129,19 @@ body{
   clear: both;
   display: table;
 }
-table{
+
+table {
   width: 100%;
   table-layout: fixed;
 
 }
 
 
-table tr{
+table tr {
   width: 100%;
 }
 
-table td{
+table td {
   text-align: center;
 }
 
@@ -145,8 +150,8 @@ table td{
   padding: 0 15px 15px;
 }
 
-.headingAlignment{
-  margin:15px 0 10px;
+.headingAlignment {
+  margin: 15px 0 10px;
 }
 
 
@@ -172,16 +177,17 @@ table {
   color: white;
 }
 
-td{
+td {
   font-size: 12px;
-    color: black;
-    text-overflow: ellipsis;
-    word-wrap: initial;
-    overflow: hidden;
+  color: black;
+  text-overflow: ellipsis;
+  word-wrap: initial;
+  overflow: hidden;
   line-height: normal;
-    max-height: 2em;
-   
+  max-height: 2em;
+
 }
+
 :host {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
@@ -453,20 +459,20 @@ svg#clouds {
   color: black;
 }
 
-.searchlabel{
-  color:lightslategray;
+.searchlabel {
+  color: lightslategray;
   float: left;
 }
 
 
 .main {
   display: flex;
-    align-items: center;
-    width: 40%;
-    padding: 15px;
-    margin-left: auto;
-    flex-wrap: wrap;
-    margin-top: 100px;
+  align-items: center;
+  width: 40%;
+  padding: 15px;
+  margin-left: auto;
+  flex-wrap: wrap;
+  margin-top: 100px;
 }
 
 button {
@@ -502,18 +508,20 @@ button {
   margin: 0px 15px 23px 27px;
 }
 
-.mat-cell a{
+.mat-cell a {
   color: blue;
-  cursor: pointer;}
+  cursor: pointer;
+}
 
 .table2 .mat-header-cell {
   background-color: #a8d2e8;
   color: black;
   text-align: center;
 }
-mat-cell > span.truncate-text {
-  text-overflow: ellipsis; 
-  overflow: hidden; 
+
+mat-cell>span.truncate-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
   white-space: nowrap;
 }
 

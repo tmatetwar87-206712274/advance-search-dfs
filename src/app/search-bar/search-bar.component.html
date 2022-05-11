@@ -23,6 +23,12 @@
       </div>
       <!-- <span class="searchlabel">Search result</span> -->
 
+      <div class="errorBox" *ngIf="isError">
+        <h1>
+          {{Error}} 
+        </h1>
+      </div>
+
       <div class="tabData" *ngIf="isVisible">
         <!-- <div class="headingAlignment"><b>Top Results</b></div> -->
 <!-- 
