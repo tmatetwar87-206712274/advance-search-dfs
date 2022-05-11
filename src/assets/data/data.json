@@ -1,8 +1,8 @@
 [
-    {"id": 1, "name": "what is the time sales today?"},
-    {"id": 2, "name": "Which are the top 3 products by sales in Mar 2021?"},
-    {"id": 3, "name": "Which category has the best sales performance?"},
-    {"id": 4, "name": "What is the sales in macau for year 2021?"},
-    {"id": 5, "name": "What is the sales performance for last month?"}
+    {"id": 1, "name": "what is the real time sales?"},
+    {"id": 2, "name": "What is the sales in macau for year 2021?"},
+    {"id": 3, "name": "Which location made the least sales in year 2020?"},
+    {"id": 4, "name": "Which are the top 3 products by sales in Mar 2021?"},
+    {"id": 5, "name": "Which beauty brand has highest sales in HK last year?"}
 
   ]

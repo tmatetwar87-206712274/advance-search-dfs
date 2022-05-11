@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/typeahead-match.class';
 import data from '../../assets/data/data.json';
 import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { SearchBarService } from './search-bar.service';
-import { NgxSpinnerService } from "ngx-spinner";
+import { NgxSpinnerService } from "ngx-spinner"
 
 @Component({
   selector: 'search-bar',
@@ -31,7 +30,7 @@ export class SearchBarComponent {
   title = 'advanceSearch';
   selectedOption: any;
   tableData!: any[];
-
+  imageSrc = 'assets/data/logo.png';
   datasetColumns: string[] = [];
   datasetcolumnsToDisplay: string[] = [];
   metadataColumns: string[] = [];
@@ -44,13 +43,17 @@ export class SearchBarComponent {
   metadata: any = [];
   dataSet: any = [];
   tmpmetaData: any = [];
+  isError:any=false;
+  Error:any;
 
   constructor(
     private router: Router,
     private searchBarService: SearchBarService,
-    private SpinnerService: NgxSpinnerService) { }
+    private SpinnerService: NgxSpinnerService,
+    
+    ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
 
     //this.searchBarService.searchAuth().subscribe((response: any) => { });
     this.searchBarService.reportAuth().subscribe((response: any) => { });
@@ -59,76 +62,87 @@ export class SearchBarComponent {
 
 
   onSelect(event: any): void {
+    this.isError=false;
+    if (event && !event.hasOwnProperty('item')) {
+      this.dataSet = [];
+      this.metadata = [];
+      this.SpinnerService.show();
 
-    this.dataSet = [];
-    this.metadata = [];
-    this.SpinnerService.show();
+      this.isVisible = false;
 
-    this.isVisible = false;
+      // this.searchBarService.getDataset(event.value).subscribe((response: any) => {
+      //   this.isVisible = true;
+      //   this.dataset = response;
+      //   this.datasetColumns = this.dataset.columnNames;
+      //   this.datasetcolumnsToDisplay = this.datasetColumns;
 
-    // this.searchBarService.getDataset(event.value).subscribe((response: any) => {
-    //   this.isVisible = true;
-    //   this.dataset = response;
-    //   this.datasetColumns = this.dataset.columnNames;
-    //   this.datasetcolumnsToDisplay = this.datasetColumns;
+      //   this.dataset.data.forEach((data: any, index1: any) => {
+      //     let datatemp: any = {};
+      //     this.datasetColumns.forEach((key: any, index2: any) => {
+      //       datatemp[key] = data[index2];
+      //     });
+      //     this.dataSet.push(datatemp);
+      //   });
 
-    //   this.dataset.data.forEach((data: any, index1: any) => {
-    //     let datatemp: any = {};
-    //     this.datasetColumns.forEach((key: any, index2: any) => {
-    //       datatemp[key] = data[index2];
-    //     });
-    //     this.dataSet.push(datatemp);
-    //   });
-
-    // }, (error) => {                              //Error callback
-    //   this.toastrService.error('Error');
-    // })
+      // }, (error) => {                              //Error callback
+      //   this.toastrService.error('Error');
+      // })
 
 
-    this.searchBarService.getMetadata(event).subscribe((response: any) => {
-      this.isVisible = true;
-      var resultset: any = [];
-      resultset.push(response);
-      this.metadataColumns = Object.keys(resultset[0]);
+      this.searchBarService.getMetadata(event).subscribe((response: any) => {
+        if(response['RESOURCENAME']){
+        this.isVisible = true;
+        var resultset: any = [];
+        resultset.push(response);
+        this.metadataColumns = Object.keys(resultset[0]);
 
-      // this.tmpmetaData=this.metadataColumns;
-      // var index = this.metadataColumns.indexOf("SOURCELINK");
-      // if (index !== -1) {
-      //   this.metadataColumns.splice(index, 1);
-      // }
-      this.metadatacolumnsToDisplay = this.metadataColumns;
-      let tmpvalues: any;
-      tmpvalues = Object.values(resultset);
-      let a = Object.keys(resultset[0])
+        // this.tmpmetaData=this.metadataColumns;
+        // var index = this.metadataColumns.indexOf("SOURCELINK");
+        // if (index !== -1) {
+        //   this.metadataColumns.splice(index, 1);
+        // }
+        this.metadatacolumnsToDisplay = this.metadataColumns;
+        let tmpvalues: any;
+        tmpvalues = Object.values(resultset);
+        let a = Object.keys(resultset[0])
 
-      let b = Object.keys(tmpvalues[0][a[0]]).length;
+        let b = Object.keys(tmpvalues[0][a[0]]).length;
 
-      for (var i = 0; i < b; i++) {
-        tmpvalues.forEach((data: any, index1: any) => {
-          let datatemp: any = {};
+        for (var i = 0; i < b; i++) {
+          tmpvalues.forEach((data: any, index1: any) => {
+            let datatemp: any = {};
 
-          this.metadataColumns.forEach((key: any, index2: any) => {
+            this.metadataColumns.forEach((key: any, index2: any) => {
 
-            datatemp[key] = data[key][i];
+              datatemp[key] = data[key][i];
 
+            });
+            this.metadata.push(datatemp);
           });
-          this.metadata.push(datatemp);
-        });
 
+        }
+        this.tmpmetaData = this.metadata;
+        var index = this.metadatacolumnsToDisplay.indexOf("SOURCELINK");
+        if (index !== -1) {
+          this.metadatacolumnsToDisplay.splice(index, 1);
+        }
+        this.SpinnerService.hide();
+        this.isError=false;
       }
-      this.tmpmetaData = this.metadata;
-      var index = this.metadatacolumnsToDisplay.indexOf("SOURCELINK");
-      if (index !== -1) {
-        this.metadatacolumnsToDisplay.splice(index, 1);
+      else
+      {
+        this.SpinnerService.hide();
+        this.isError=true;
+        this.Error=response;
+        
       }
-      this.SpinnerService.hide();
+      }, (error) => {                              //Error callback
+        console.log(error);
+        this.SpinnerService.hide();
+        this.isVisible = false;
 
-    }, (error) => {                              //Error callback
-      console.log(error);
-      this.SpinnerService.hide();
-      this.isVisible=false;
-
-    })
+      })
+    }
 
   }
 

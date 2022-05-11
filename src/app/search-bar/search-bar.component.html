@@ -1,5 +1,6 @@
 <div class="maindiv">
   <div class="header">
+    <img class="logo" [src]="imageSrc" width="52px" height="50px" />
     <div class="header-right">
       <a (click)="onClick()" href="#home">Logout</a>
 
@@ -16,7 +17,7 @@
       </div>
       <div class="autocomplete form-group has-search">
         <span class="fa fa-search form-control-feedback"></span>
-        <input (keypress)="keyUp($event)" type="text" class="form-control" [(ngModel)]="selectedValue" [typeahead]="questions"
+        <input [ngClass]="{'errorColor' : isError}" (keypress)="keyUp($event)" type="text" class="form-control" [(ngModel)]="selectedValue" [typeahead]="questions"
           typeaheadOptionField="name" [typeaheadScrollable]="true" [typeaheadMinLength]=0
           (typeaheadOnBlur)="onSelect($event)" (typeaheadOnSelect)="onSelect($event.value)" class="form-control" placeholder="What are you looking for?">
       </div>

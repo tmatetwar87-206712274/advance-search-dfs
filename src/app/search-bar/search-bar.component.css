@@ -48,8 +48,9 @@
 }
 
 .header img {
-  max-width: 30px;
-  margin: 6px 4px 3px 10px;
+  max-width: 38px;
+  margin: 3px 4px 3px 10px;
+  max-height: 38px;
 }
 
 .header a.active {
@@ -112,6 +113,10 @@ body{
   width: 45%;
   padding: 61px;
   margin-left: 366px;
+}
+
+.errorColor{
+  border:2px solid red;
 }
 
 /* Clearfix (clear floats) */
@@ -493,6 +498,9 @@ button {
   text-align: center;
 }
 
+.logo {
+  margin: 0px 15px 23px 27px;
+}
 
 .mat-cell a{
   color: blue;

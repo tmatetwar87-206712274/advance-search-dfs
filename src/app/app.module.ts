@@ -45,7 +45,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSortModule,
     MatButtonModule,
     FlexLayoutModule,
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
