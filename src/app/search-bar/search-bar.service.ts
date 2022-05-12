@@ -27,7 +27,7 @@ export class SearchBarService {
     let body = {};
     body = { "search_query": value };
 
-    return this.http.post("http://10.251.2.20:8889/DFS/Report_Search/report_search/", body, {
+    return this.http.post("http://intelligentsearch-elb-1420441590.us-east-1.elb.amazonaws.com:8889/DFS/Report_Search/report_search/", body, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -44,7 +44,7 @@ export class SearchBarService {
   // }
 
   reportAuth(){
-    return this.http.post("http://10.251.2.20:8889/DFS/Report_Search/report_auth/", {
+    return this.http.post("http://intelligentsearch-elb-1420441590.us-east-1.elb.amazonaws.com:8889/DFS/Report_Search/report_auth/", {
       headers: new HttpHeaders({
         'Accept': 'application/json'
       })
