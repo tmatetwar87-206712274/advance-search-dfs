@@ -12,6 +12,7 @@ import { LoginPageService } from './login-page.service';
 export class loginPageComponent implements OnInit {
   myForm!: FormGroup;
   imageSrc = 'assets/data/logo.png';
+  isError:any=false;
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
@@ -30,11 +31,16 @@ export class loginPageComponent implements OnInit {
   }
 
   onSubmit() {
+     if(this.myForm.value.username.toLowerCase()=='dfs.trial@infocepts.com' && this.myForm.value.password=='Test789&'){
    
     // this.loginPageService.isLogged(this.myForm).subscribe(() => {
       this.router.navigate(['/search']);
-    
-     //});
+     this.isError=false;
+     }
+     else{
+       this.isError=true;
+     }
+   
 
   }
 
@@ -43,16 +49,4 @@ export class loginPageComponent implements OnInit {
     this.router.navigate(['/users']);
   }
 
-
-
-
-  showSuccess() {
-
-  }
-
-  showError() {
-
-
-
-  }
 }

@@ -58,6 +58,11 @@ a {
   padding: 4px 0px 8px 0px;
 }
 
+.showError{
+  color: red;
+    text-align: center;
+    padding-top: 11px;
+}
 .mat-typography {
   background-image: url(../../assets/data/login_image.jpg);
   height: 100%;
